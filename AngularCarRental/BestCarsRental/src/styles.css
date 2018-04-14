@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+h3.admin-list-all {
+    background-color:  #ecf1ec;
+    color: #5d96db;
+}
+
+table.admin-table   {
+    background-color:  #ecf1ec;
+    border-radius: 5px;
+}
+div.validation-error{
+    color: red;
+    text-align: center;
+}
+
+button:hover,a.btn:hover{
+    cursor: pointer;
+}
+ 
+div.nav-title {
+    text-align: center;
+    color: black;
+    padding: 50px;
+}
+
+ul.nav-admin{
+    background-color: white;
+    color:black;
+    border-radius: 5px;
+    margin: 40px;
+    width:100px;
+    height: 250px;
+}
+
+div.main-page {
+    color:blue;
+    background-color: #3e468d;
+}
+
+.main-header {
+    color:blue;
+    background-color: #3e468d;
+    height: 30px;
+    padding: 0px;
+    margin: 10px;
+}
+
+.main-main {
+    height: 400px;
+    padding: 0px;
+    margin: 20px ;
+    height: 500px;
+    background-image: url("assets/images/body.jpg");
+}
+
+.main-footer {
+    color:blue;
+    background-color: #3e468d;
+    height: 30px;
+    padding: 0px;
+    margin: 20px;
+}
+
+
+.car-display22 {
+    height: 30px;
+    padding: 0px;
+    margin: 20px;
+}
+
+nav.nav-options {
+   font-size: 20px;
+}
+
+form.form-order {
+    background-color:blanchedalmond;
+}

@@ -1,0 +1,22 @@
+
+GO
+SET IDENTITY_INSERT [dbo].[Customers] ON 
+INSERT [dbo].[Customers] ([CustomerID], [FullName], [IDNumber], [UserName], [BirthDate], [Gender], [EMail], [Password], [Photo]) 
+VALUES (1, N'Muller Jacob', N'021381280', N'jaco123', CAST(N'1957-12-12 00:00:00.000' AS DateTime), 1, NULL, N'qwertyqwerty', NULL)
+INSERT [dbo].[Customers] ([CustomerID], [FullName], [IDNumber], [UserName], [BirthDate], [Gender], [EMail], [Password], [Photo]) 
+VALUES (2, N'Keller Michael', N'033624180', N'mich123', CAST(N'1965-12-12 00:00:00.000' AS DateTime), 1, NULL, N'qwertyqwerty', NULL)
+
+INSERT [dbo].[Customers] ([CustomerID], [FullName], [IDNumber], [UserName], [BirthDate], [Gender], [EMail], [Password], [Photo]) 
+VALUES (3, N'Huber Joseph', N'014293450', N'jose123', CAST(N'1970-12-12 00:00:00.000' AS DateTime), 1, NULL, N'qwertyqwerty', NULL)
+
+INSERT [dbo].[Customers] ([CustomerID], [FullName], [IDNumber], [UserName], [BirthDate], [Gender], [EMail], [Password], [Photo]) 
+VALUES (4, N'Martin Daniel', N'065152670', N'dani123', CAST(N'1971-12-12 00:00:00.000' AS DateTime), 1, NULL, N'qwertyqwerty', NULL)
+
+INSERT [dbo].[Customers] ([CustomerID], [FullName], [IDNumber], [UserName], [BirthDate], [Gender], [EMail], [Password], [Photo]) 
+VALUES (5, N'Murphy William', N'034112540', N'will123', CAST(N'1980-12-12 00:00:00.000' AS DateTime), 1, NULL, N'qwertyqwerty', NULL)
+
+SET IDENTITY_INSERT [dbo].[Customers] OFF
+
+
+
+

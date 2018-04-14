@@ -1,0 +1,14 @@
+USE [BestCarsRental]
+GO
+
+DELETE FROM [dbo].[Orders]
+DELETE FROM [dbo].[Cars]    
+DELETE FROM [dbo].[Employees]
+    
+
+DELETE FROM [dbo].[Branches]
+DELETE FROM [dbo].[Customers]
+DELETE FROM [dbo].[CarTypes]
+GO
+
+

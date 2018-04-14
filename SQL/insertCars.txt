@@ -1,0 +1,30 @@
+SET IDENTITY_INSERT [dbo].[Cars] ON 
+
+INSERT [dbo].[Cars] ([CarID], [CarTypeID], [Mileage], [Image], [BestCondition], [CarNumber], [BranchID])
+ VALUES (1, 1, 3000, N'ToyotaYaris.jpg', 1, N'8998998', 1)
+ 
+INSERT [dbo].[Cars] ([CarID], [CarTypeID], [Mileage], [Image], [BestCondition], [CarNumber], [BranchID])
+ VALUES (2, 2, 3100, N'VolkswagenBeetle.jpg', 1, N'4554454', 1)
+ 
+INSERT [dbo].[Cars] ([CarID], [CarTypeID], [Mileage], [Image], [BestCondition], [CarNumber], [BranchID])
+ VALUES (3, 3, 3200, N'HyundaiI20.jpg', 1, N'3232323', 2)
+ 
+INSERT [dbo].[Cars] ([CarID], [CarTypeID], [Mileage], [Image], [BestCondition], [CarNumber], [BranchID])
+ VALUES (4, 4, 3300, N'FordFiesta.jpg', 1, N'6767676', 2)
+ 
+INSERT [dbo].[Cars] ([CarID], [CarTypeID], [Mileage], [Image], [BestCondition], [CarNumber], [BranchID])
+ VALUES (5, 5, 3400, N'HondaCivic.jpg', 1, N'2929292', 3)
+ 
+INSERT [dbo].[Cars] ([CarID], [CarTypeID], [Mileage], [Image], [BestCondition], [CarNumber], [BranchID])
+ VALUES (6, 6, 3500, N'RenaultFluence.jpg', 1, N'3883883', 4)
+ 
+INSERT [dbo].[Cars] ([CarID], [CarTypeID], [Mileage], [Image], [BestCondition], [CarNumber], [BranchID])
+ VALUES (7, 2, 3600, N'VolkswagenBeetle.jpg', 1, N'6464646', 5)
+ 
+INSERT [dbo].[Cars] ([CarID], [CarTypeID], [Mileage], [Image], [BestCondition], [CarNumber], [BranchID])
+ VALUES (8, 4, 3600, N'FordFiesta.jpg', 1, N'6462646', 6)
+ 
+INSERT [dbo].[Cars] ([CarID], [CarTypeID], [Mileage], [Image], [BestCondition], [CarNumber], [BranchID])
+ VALUES (9, 6, 3600, N'RenaultFluence.jpg', 1, N'6463646', 6)
+ 
+SET IDENTITY_INSERT [dbo].[Cars] OFF

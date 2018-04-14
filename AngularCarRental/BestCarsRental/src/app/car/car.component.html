@@ -1,0 +1,62 @@
+
+<div class="row">
+    <div class="col-md-6">
+        <form class="car-form" #carForm="ngForm">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <input class="form-control" name="CarNumberS" [(ngModel)]="carNumber" />
+                </div>
+                <div class="form-group col-md-3">
+                    <button (click)="onSearchCar()">search</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="CarNumber" #CarNumber="ngModel" [(ngModel)]="car.CarNumber" placeholder="Car Number" required>
+                <div class="validation-error" *ngIf="CarNumber.invalid && CarNumber.touched">This Field is Required.</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="BestCondition" #BestCondition="ngModel" [(ngModel)]="car.BestCondition" placeholder="Best Condition" required>
+                <div class="validation-error" *ngIf="BestCondition.invalid && BestCondition.touched">This Field is Required.</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="Mileage" #Mileage="ngModel" [(ngModel)]="car.Mileage" placeholder="Mileage" required>
+                <div class="validation-error" *ngIf="Mileage.invalid && Mileage.touched">This Field is Required.</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="Image" #Image="ngModel" [(ngModel)]="car.Image" placeholder="Image" required>
+                <div class="validation-error" *ngIf="Image.invalid && Image.touched">This Field is Required.</div>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="Branch" #Branch="ngModel" [(ngModel)]="car.Branch">
+                    <option *ngFor="let branch of branchService.branchesList" [ngValue]="branch">{{branch.BranchName}}</option>
+                </select>
+            </div> 
+            <div class="form-group">
+                <select class="form-control" name="CarType" #CarType="ngModel" [(ngModel)]="car.CarType">
+                    <option *ngFor="let cartype of carTypeService.carTypesList" [ngValue]="cartype">{{cartype.Model}}</option>
+                </select>
+            </div>
+ 
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <button [disabled]="!carForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onUpdateCar()">
+                        <i class="fa fa-floppy-o"></i> Update
+                    </button>
+                </div>
+                <div class="form-group col-md-4">
+                    <button [disabled]="!carForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onNewCar()">
+                        <i class="fa fa-floppy-o"></i> New
+                    </button>
+                </div>
+                <div class="form-group col-md-4">
+                    <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="onResetCar()">
+                        <i class="fa fa-repeat"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <app-cars-list></app-cars-list>
+    </div>
+</div>

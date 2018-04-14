@@ -1,0 +1,64 @@
+
+<div class="row">
+    <div class="col-md-6">
+
+        <form class="car-type-form" #carTypeForm="ngForm">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <input class="form-control" name="Model" [(ngModel)]="carTypeModel" />
+                </div>
+                <div class="form-group col-md-3">
+                    <button (click)="onSearchCarType()">search</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="Model" #Model="ngModel" [(ngModel)]="carType.Model" placeholder="Model" required>
+                <div class="validation-error" *ngIf="Model.invalid && Model.touched">This Field is Required.</div>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" name="Manufacturer" #Manufacturer="ngModel" [(ngModel)]="carType.Manufacturer" placeholder="Manufacturer" required>
+                <div class="validation-error" *ngIf="Manufacturer.invalid && Manufacturer.touched">This Field is Required.</div>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" name="PricePerDay" #PricePerDay="ngModel" [(ngModel)]="carType.PricePerDay" placeholder="Price Per Day" required>
+                <div class="validation-error" *ngIf="PricePerDay.invalid && PricePerDay.touched">This Field is Required.</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="PricePerLateDay" #PricePerLateDay="ngModel" [(ngModel)]="carType.PricePerLateDay" placeholder="Price Per Late Day" required>
+                <div class="validation-error" *ngIf="PricePerLateDay.invalid && PricePerLateDay.touched">This Field is Required.</div>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" name="ProductionYear" #ProductionYear="ngModel" [(ngModel)]="carType.ProductionYear" placeholder="Production Year" required>
+                <div class="validation-error" *ngIf="ProductionYear.invalid && ProductionYear.touched">This Field is Required.</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="GearboxType" #GearboxType="ngModel" [(ngModel)]="carType.GearboxType" placeholder="Gear box Type" required>
+                <div class="validation-error" *ngIf="GearboxType.invalid && GearboxType.touched">This Field is Required.</div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <button [disabled]="!carTypeForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onUpdateCarType()">
+                        <i class="fa fa-floppy-o"></i> Update
+                    </button>
+                </div>
+                <div class="form-group col-md-4">
+                    <button [disabled]="!carTypeForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onNewCarType()">
+                        <i class="fa fa-floppy-o"></i> New
+                    </button>
+                </div>
+                <div class="form-group col-md-4">
+                    <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="onResetCarType()">
+                        <i class="fa fa-repeat"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-md-6">
+        <app-car-types-list></app-car-types-list>
+    </div>
+</div>

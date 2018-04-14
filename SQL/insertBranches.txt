@@ -1,0 +1,21 @@
+SET IDENTITY_INSERT [dbo].[Branches] ON 
+
+INSERT [dbo].[Branches] ([BranchID], [Latitude], [Longitude], [BranchName], [Address]) 
+VALUES (1, CAST(32.0853 AS Decimal(10, 8)), CAST(34.7818 AS Decimal(11, 8)), N'TelAviv', N'17 Good St. Tel Aviv')
+
+INSERT [dbo].[Branches] ([BranchID], [Latitude], [Longitude], [BranchName], [Address]) 
+VALUES (2, CAST(31.7683 AS Decimal(10, 8)), CAST(35.2137 AS Decimal(11, 8)), N'Jerusalem', N'17 Good St. Jerusalem')
+
+INSERT [dbo].[Branches] ([BranchID], [Latitude], [Longitude], [BranchName], [Address]) 
+VALUES (3, CAST(48.8566  AS Decimal(10, 8)), CAST(2.3522 AS Decimal(11, 8)), N'Paris', N'17 Good St. Paris')
+
+INSERT [dbo].[Branches] ([BranchID], [Latitude], [Longitude], [BranchName], [Address]) 
+VALUES (4, CAST(51.5074 AS Decimal(10, 8)), CAST(0.1278 AS Decimal(11, 8)), N'London', N'17 Good St. London')
+
+INSERT [dbo].[Branches] ([BranchID], [Latitude], [Longitude], [BranchName], [Address]) 
+VALUES (5, CAST(41.9028 AS Decimal(10, 8)), CAST(12.4964 AS Decimal(11, 8)), N'Rome', N'17 Good St. Rome')
+
+INSERT [dbo].[Branches] ([BranchID], [Latitude], [Longitude], [BranchName], [Address]) 
+VALUES (6, CAST(40.7128 AS Decimal(10, 8)), CAST(74.0060 AS Decimal(11, 8)), N'NewYork', N'17 Good St. New York')
+
+SET IDENTITY_INSERT [dbo].[Branches] OFF

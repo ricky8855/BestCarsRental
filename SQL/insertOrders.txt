@@ -1,0 +1,21 @@
+SET IDENTITY_INSERT [dbo].[Orders] ON 
+
+INSERT [dbo].[Orders] ([OrderID], [StartDate], [ExpectedReturnDate], [ActualReturnDate], [CustomerID], [CarID]) 
+VALUES (1, CAST(N'2018-03-03' AS DateTime), CAST(N'2018-04-04' AS DateTime), 
+CAST(N'2018-04-04' AS DateTime), 1, 1)
+
+INSERT [dbo].[Orders] ([OrderID], [StartDate], [ExpectedReturnDate], [ActualReturnDate], [CustomerID], [CarID]) 
+VALUES (2, CAST(N'2018-04-03' AS DateTime), CAST(N'2018-04-04' AS DateTime), 
+CAST(N'2018-04-04' AS DateTime), 2, 2)
+
+INSERT [dbo].[Orders] ([OrderID], [StartDate], [ExpectedReturnDate], [ActualReturnDate], [CustomerID], [CarID]) 
+VALUES (3, CAST(N'2018-05-03' AS DateTime), CAST(N'2018-04-04' AS DateTime), 
+CAST(N'2018-04-04' AS DateTime), 3, 3)
+INSERT [dbo].[Orders] ([OrderID], [StartDate], [ExpectedReturnDate], [ActualReturnDate], [CustomerID], [CarID]) 
+VALUES (4, CAST(N'2018-06-03' AS DateTime), CAST(N'2018-04-04' AS DateTime), 
+CAST(N'2018-04-04' AS DateTime), 4, 4)
+INSERT [dbo].[Orders] ([OrderID], [StartDate], [ExpectedReturnDate], [ActualReturnDate], [CustomerID], [CarID]) 
+VALUES (5, CAST(N'2018-03-03' AS DateTime), CAST(N'2018-04-04' AS DateTime), 
+CAST(N'2018-04-04' AS DateTime), 5, 5)
+
+SET IDENTITY_INSERT [dbo].[Orders] OFF

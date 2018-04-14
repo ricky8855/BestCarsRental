@@ -1,0 +1,23 @@
+SET IDENTITY_INSERT [dbo].[CarTypes] ON 
+
+INSERT [dbo].[CarTypes] ([CarTypeID], [Manufacturer], [Model], [PricePerDay], [PricePerLateDay], [ProductionYear], [GearboxType])
+ VALUES (1, N'Toyota', N'Yaris', CAST(80 AS Decimal(18, 0)), CAST(100 AS Decimal(18, 0)), N'1980', 1)
+ 
+INSERT [dbo].[CarTypes] ([CarTypeID], [Manufacturer], [Model], [PricePerDay], [PricePerLateDay], [ProductionYear], [GearboxType])
+ VALUES (2, N'Volkswagen', N'Beetle', CAST(90 AS Decimal(18, 0)), CAST(110 AS Decimal(18, 0)), N'1990', 2)
+ 
+INSERT [dbo].[CarTypes] ([CarTypeID], [Manufacturer], [Model], [PricePerDay], [PricePerLateDay], [ProductionYear], [GearboxType])
+ VALUES (3, N'Hyundai', N'i20', CAST(100 AS Decimal(18, 0)), CAST(130 AS Decimal(18, 0)), N'2000', 1)
+ 
+INSERT [dbo].[CarTypes] ([CarTypeID], [Manufacturer], [Model], [PricePerDay], [PricePerLateDay], [ProductionYear], [GearboxType])
+ VALUES (4, N'Ford', N'Fiesta', CAST(110 AS Decimal(18, 0)), CAST(150 AS Decimal(18, 0)), N'2005', 2)
+ 
+INSERT [dbo].[CarTypes] ([CarTypeID], [Manufacturer], [Model], [PricePerDay], [PricePerLateDay], [ProductionYear], [GearboxType])
+ VALUES (5, N'Honda', N'Civic', CAST(120 AS Decimal(18, 0)), CAST(130 AS Decimal(18, 0)), N'2002', 1)
+
+INSERT [dbo].[CarTypes] ([CarTypeID], [Manufacturer], [Model], [PricePerDay], [PricePerLateDay], [ProductionYear], [GearboxType])
+ VALUES (6, N'Renault', N'Fluence', CAST(130 AS Decimal(18, 0)), CAST(150 AS Decimal(18, 0)), N'1960', 2)
+ 
+SET IDENTITY_INSERT [dbo].[CarTypes] OFF
+ 
+ 

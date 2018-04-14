@@ -1,0 +1,30 @@
+
+<div class="row">
+    <div class="col-md-9">
+        <h3 class="admin-list-all"> All Branches </h3>
+    </div>
+    <div class="col-md-3">
+        <button (click)="branchService.getBranches()">Refresh</button>
+    </div>
+</div>
+
+<table class="admin-table table table-sm table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Branch Name</th>
+            <th scope="col">Address</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let branch of branchService.branchesList">
+        <td>{{branch.BranchName}}</td>
+        <td>{{branch.Address}}</td>
+        <td>
+            <a class="btn" (click)="showForEdit(branch)">
+                <i class="fa fa-pencil-square-o"></i>
+            </a>
+            <a class="btn text-danger" (click)="onDeleteBranch(branch.BranchName)">
+                <i class="fa fa-trash-o"></i>
+            </a>
+        </td>
+    </tr>
+</table>

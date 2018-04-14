@@ -1,0 +1,61 @@
+
+<div class="row">
+    <div class="col-md-6">
+        <form class="order-form" #orderForm="ngForm">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <input class="form-control" name="orderIDs" [(ngModel)]="orderID" />
+                </div>
+                <div class="form-group col-md-3">
+                    <button (click)="onSearchOrder()">search</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="test" name="OrderID" #OrderID="ngModel" [(ngModel)]="order.OrderID" placeholder="Order ID">
+            </div>
+            <div class="form-group"> 
+                <input type="date" class="form-control" name="StartDate" #StartDate="ngModel" [(ngModel)]="order.StartDate" placeholder="Start Date" required>
+                <div class="validation-error" *ngIf="StartDate.invalid && StartDate.touched">This Field is Required.</div>
+            </div>
+            <div class="form-group">
+                <input  type="date" class="form-control" name="ExpectedReturnDate" #ExpectedReturnDate="ngModel" [(ngModel)]="order.ExpectedReturnDate" placeholder="Expected Return Date" required>
+                <div class="validation-error" *ngIf="ExpectedReturnDate.invalid && ExpectedReturnDate.touched">This Field is Required.</div>
+            </div>
+            <div class="form-group">
+                <input  type="date" class="form-control" name="ActualReturnDate" #ActualReturnDate="ngModel" [(ngModel)]="order.ActualReturnDate" placeholder="Actual Return Date" required>
+                <div class="validation-error" *ngIf="ActualReturnDate.invalid && ActualReturnDate.touched">This Field is Required.</div>
+            </div>
+             
+            <div class="form-group">
+                <select class="form-control" name="Car" #Car="ngModel" [(ngModel)]="order.Car">
+                    <option *ngFor="let car of carService.carsList" [ngValue]="car">{{car.CarNumber}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="Customer" #Customer="ngModel" [(ngModel)]="order.Customer">
+                    <option *ngFor="let customer of customerService.customersList" [ngValue]="customer">{{customer.FullName}}</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <button [disabled]="!orderForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onUpdateOrder()">
+                        <i class="fa fa-floppy-o"></i> Update
+                    </button>
+                </div>
+                <div class="form-group col-md-4">
+                    <button [disabled]="!orderForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onNewOrder()">
+                        <i class="fa fa-floppy-o"></i> New
+                    </button>
+                </div>
+                <div class="form-group col-md-4">
+                    <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="onResetOrder()">
+                        <i class="fa fa-repeat"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <app-orders-list></app-orders-list>
+    </div>
+</div>
