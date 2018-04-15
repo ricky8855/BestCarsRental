@@ -5,20 +5,10 @@ namespace BestCarsRental_BO
 {
     public class BranchModel
     {
-
-        public BranchModel() { }
-        public BranchModel(Branch branch)
-        {
-            Latitude = branch.Latitude;
-            Longitude = branch.Longitude;
-            BranchName = branch.BranchName;
-            Address = branch.Address;
-        }
-
-        [Required, Range(2, 100)]
+        [Required, Range(-90, 90)]
         public decimal Latitude { get; set; }
 
-        [Required, Range(2, 100)]
+        [Required, Range(-180, 180)]
         public decimal Longitude { get; set; }
 
         [Required, MinLength(2), MaxLength(50)]

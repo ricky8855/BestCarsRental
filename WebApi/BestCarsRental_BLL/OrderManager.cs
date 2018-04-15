@@ -24,7 +24,23 @@ namespace BestCarsRental_BLL
                         CarNumber = a.Car.CarNumber,
                         Mileage = a.Car.Mileage,
                         Image = a.Car.Image,
-                        BestCondition = a.Car.BestCondition
+                        BestCondition = a.Car.BestCondition,
+                        Branch = new BranchModel
+                        {
+                            Latitude = a.Car.Branch.Latitude,
+                            Longitude = a.Car.Branch.Longitude,
+                            BranchName = a.Car.Branch.BranchName,
+                            Address = a.Car.Branch.Address
+                        },
+                        CarType = new CarTypeModel
+                        {
+                            Manufacturer = a.Car.CarType.Manufacturer,
+                            Model = a.Car.CarType.Model,
+                            PricePerDay = a.Car.CarType.PricePerDay,
+                            PricePerLateDay = a.Car.CarType.PricePerLateDay,
+                            ProductionYear = a.Car.CarType.ProductionYear,
+                            GearboxType = a.Car.CarType.GearboxType
+                        }, 
                     },
                     Customer = new CustomerModel
                     {
@@ -54,7 +70,41 @@ namespace BestCarsRental_BLL
                         OrderID = a.OrderID,
                         StartDate = a.StartDate,
                         ExpectedReturnDate = a.ExpectedReturnDate,
-                        ActualReturnDate = a.ActualReturnDate
+                        ActualReturnDate = a.ActualReturnDate,
+                        Car = new CarModel
+                        {
+                            CarNumber = a.Car.CarNumber,
+                            Mileage = a.Car.Mileage,
+                            Image = a.Car.Image,
+                            BestCondition = a.Car.BestCondition,
+                            Branch = new BranchModel
+                            {
+                                Latitude = a.Car.Branch.Latitude,
+                                Longitude = a.Car.Branch.Longitude,
+                                BranchName = a.Car.Branch.BranchName,
+                                Address = a.Car.Branch.Address
+                            },
+                            CarType = new CarTypeModel
+                            {
+                                Manufacturer = a.Car.CarType.Manufacturer,
+                                Model = a.Car.CarType.Model,
+                                PricePerDay = a.Car.CarType.PricePerDay,
+                                PricePerLateDay = a.Car.CarType.PricePerLateDay,
+                                ProductionYear = a.Car.CarType.ProductionYear,
+                                GearboxType = a.Car.CarType.GearboxType
+                            },
+                        },
+                        Customer = new CustomerModel
+                        {
+                            FullName = a.Customer.FullName,
+                            IDNumber = a.Customer.IDNumber,
+                            UserName = a.Customer.UserName,
+                            BirthDate = a.Customer.BirthDate,
+                            Gender = a.Customer.Gender,
+                            EMail = a.Customer.EMail,
+                            Password = a.Customer.Password,
+                            Photo = a.Customer.Photo
+                        }
                     };
                 }
 
@@ -95,29 +145,6 @@ namespace BestCarsRental_BLL
                 }
             }
             catch
-            {
-                return false;
-            }
-        }
-
-        public bool AddOrder2(OrderModel order)
-        {
-            try
-            {
-                using (BestCarsRentalEntities db = new BestCarsRentalEntities())
-                {
-                    db.Orders.Add(new Order
-                    {
-                        StartDate = order.StartDate,
-                        ExpectedReturnDate = order.ExpectedReturnDate,
-                        ActualReturnDate = order.ActualReturnDate
-
-                    });
-                    db.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception)
             {
                 return false;
             }

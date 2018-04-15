@@ -117,7 +117,13 @@ namespace BestCarsRental_BLL
                         Mileage = bestCar.Mileage,
                         Image = bestCar.Image,
                         BestCondition = bestCar.BestCondition,
-                        Branch = new BranchModel(bestCar.Branch),
+                        Branch = new BranchModel
+                        {
+                            BranchName = bestCar.Branch.BranchName,
+                            Address = bestCar.Branch.Address,
+                            Latitude = bestCar.Branch.Latitude,
+                            Longitude = bestCar.Branch.Longitude
+                        },
                         CarType = new CarTypeModel
                         {
                             Manufacturer = bestCar.CarType.Manufacturer,

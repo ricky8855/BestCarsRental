@@ -5,19 +5,7 @@ namespace BestCarsRental_BO
 {
     public class CarTypeModel
     {
-        public CarTypeModel()
-        { }
-
-        public CarTypeModel(CarType carType)
-        {
-            Manufacturer = carType.Manufacturer;
-            Model = carType.Model;
-            PricePerDay = carType.PricePerDay;
-            PricePerLateDay = carType.PricePerLateDay;
-            ProductionYear = carType.ProductionYear;
-            GearboxType = carType.GearboxType;
-        }
-
+ 
         [Required, MinLength(2), MaxLength(20)]
         public string Manufacturer { get; set; }
 

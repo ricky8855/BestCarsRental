@@ -39,7 +39,7 @@ namespace BestCarsRental_BLL
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-                Customer customer = db.Customers.FirstOrDefault(at => at.FullName == name);
+                Customer customer = db.Customers.FirstOrDefault(at => (at.FullName == name || at.UserName == name ));
 
                 if (customer != null)
                 {
