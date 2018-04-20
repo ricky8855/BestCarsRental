@@ -20,7 +20,7 @@ namespace BestCarsRental_BLL
                     UserName = customer.UserName,
                     BirthDate = customer.BirthDate,
                     Gender = customer.Gender,
-                    EMail = customer.EMail,
+                    Email = customer.Email,
                     Password = customer.Password,
                     Photo = customer.Photo
                 }).ToList();
@@ -50,7 +50,7 @@ namespace BestCarsRental_BLL
                         UserName = customer.UserName,
                         BirthDate = customer.BirthDate,
                         Gender = customer.Gender,
-                        EMail = customer.EMail,
+                        Email = customer.Email,
                         Password = customer.Password,
                         Photo = customer.Photo
                     };
@@ -80,7 +80,7 @@ namespace BestCarsRental_BLL
                         UserName = customer.UserName,
                         BirthDate = customer.BirthDate,
                         Gender = customer.Gender,
-                        EMail = customer.EMail,
+                        Email = customer.Email,
                         Password = customer.Password,
                         Photo = customer.Photo
 

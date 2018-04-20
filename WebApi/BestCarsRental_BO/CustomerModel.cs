@@ -18,10 +18,10 @@ namespace BestCarsRental_BO
         public System.DateTime BirthDate { get; set; }
 
         [Required]
-        public int Gender { get; set; }
+        public string Gender { get; set; }
 
      //   [DataType(DataType.EmailAddress)]
-        public string EMail { get; set; }
+        public string Email { get; set; }
 
         [Required, MinLength(8), MaxLength(256)]
        // [DataType(DataType.Password)]
