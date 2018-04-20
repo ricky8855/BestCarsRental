@@ -1,4 +1,4 @@
-﻿using BestCarsRental_DAL;
+﻿
 using System.ComponentModel.DataAnnotations;
 
 namespace BestCarsRental_BO
