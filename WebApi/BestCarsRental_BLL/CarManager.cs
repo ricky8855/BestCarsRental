@@ -141,86 +141,65 @@ namespace BestCarsRental_BLL
 
         public bool AddCar(CarModel carModel)
         {
-             try
-            {
-                using (BestCarsRentalEntities db = new BestCarsRentalEntities())
-                {
-                    Branch branch = db.Branches.Where(br => br.BranchName == carModel.Branch.BranchName).FirstOrDefault();
-                    if (branch == null)
-                    {
-                        //     errorMessage = "Car not found";
-                        return false;
-                    }
-                    CarType carType = db.CarTypes.Where(c => c.Model == carModel.CarType.Model).FirstOrDefault();
-                    if (carType == null)
-                    {
-                        //      errorMessage = "User not found";
-                        return false;
-                    }
-                    db.Cars.Add(new Car
-                    {
-                        BranchID = branch.BranchID,
-                        CarTypeID = carType.CarTypeID,
-                        CarNumber = carModel.CarNumber,
-                        Mileage = carModel.Mileage,
-                        Image = carModel.Image,
-                        BestCondition = carModel.BestCondition
-                    });
-                    db.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
+			{
+				Branch branch = db.Branches.Where(br => br.BranchName == carModel.Branch.BranchName).FirstOrDefault();
+				if (branch == null)
+				{
+					//     errorMessage = "Car not found";
+					return false;
+				}
+				CarType carType = db.CarTypes.Where(c => c.Model == carModel.CarType.Model).FirstOrDefault();
+				if (carType == null)
+				{
+					//      errorMessage = "User not found";
+					return false;
+				}
+				db.Cars.Add(new Car
+				{
+					BranchID = branch.BranchID,
+					CarTypeID = carType.CarTypeID,
+					CarNumber = carModel.CarNumber,
+					Mileage = carModel.Mileage,
+					Image = carModel.Image,
+					BestCondition = carModel.BestCondition
+				});
+				db.SaveChanges();
+				return true;
+			}
         }
 
 
         public bool DeleteCar(string carNumber)
         {
-            try
-            {
-                using (BestCarsRentalEntities db = new BestCarsRentalEntities())
-                {
-                    Car bestCar = db.Cars.FirstOrDefault(c3 => c3.CarNumber == carNumber);
-                    if (bestCar != null)
-                    {
-                        db.Cars.Remove(bestCar);
-                        db.SaveChanges();
-                        return true;
-                    }
-                }
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
+			{
+				Car bestCar = db.Cars.FirstOrDefault(c3 => c3.CarNumber == carNumber);
+				if (bestCar != null)
+				{
+					db.Cars.Remove(bestCar);
+					db.SaveChanges();
+					return true;
+				}
+			}
+			return false;
         }
 
         public bool EditCar(CarModel car)
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-                try
-                {
-                    Car car2 = db.Cars.FirstOrDefault(car3 => car3.CarNumber == car.CarNumber);
-                    if (car2 != null)
-                    {
-                        car2.Mileage = car.Mileage;
-                        car2.BestCondition = car.BestCondition;
-                        car2.Image = car.Image;
-                        db.SaveChanges();
-                        return true;
-                    }
-                    return false;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-            }
+				Car car2 = db.Cars.FirstOrDefault(car3 => car3.CarNumber == car.CarNumber);
+				if (car2 != null)
+				{
+					car2.Mileage = car.Mileage;
+					car2.BestCondition = car.BestCondition;
+					car2.Image = car.Image;
+					db.SaveChanges();
+					return true;
+				}
+				return false;
+		    }
         }
     }
 }

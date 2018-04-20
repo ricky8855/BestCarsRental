@@ -53,70 +53,48 @@ namespace BestCarsRental_BLL
 
         public bool AddBranch(BranchModel a)
         {
-            try
-            {
-                using (BestCarsRentalEntities db = new BestCarsRentalEntities())
-                {
-                    db.Branches.Add(new Branch
-                    {
-                        BranchName = a.BranchName,
-                        Address = a.Address,
-                        Latitude = a.Latitude,
-                        Longitude = a.Longitude
-                    });
-                    db.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
+			{
+				db.Branches.Add(new Branch
+				{
+					BranchName = a.BranchName,
+					Address = a.Address,
+					Latitude = a.Latitude,
+					Longitude = a.Longitude
+				});
+				db.SaveChanges();
+				return true;
+			}
         }
 
         public bool DeleteBranch(string name)
         {
-            try
-            {
-                using (BestCarsRentalEntities db = new BestCarsRentalEntities())
-                {
-                    Branch br = db.Branches.FirstOrDefault(br3 => br3.BranchName == name);
-                    if (br != null)
-                    {
-                        db.Branches.Remove(br);
-                        db.SaveChanges();
-                        return true;
-                    }
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw new DBManagerException(ex.Message, ex);
-            }
-        }
+			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
+			{
+				Branch br = db.Branches.FirstOrDefault(br3 => br3.BranchName == name);
+				if (br != null)
+				{
+					db.Branches.Remove(br);
+					db.SaveChanges();
+					return true;
+				}
+			}
+			return false;
+	}
 
         public bool EditBranch(BranchModel branchModel)
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-                try
-                {
-                    Branch br = db.Branches.FirstOrDefault(br3 => br3.BranchName == branchModel.BranchName);
-                    if (br != null)
-                    {
-                        br.Address = branchModel.Address;
-                        db.SaveChanges();
-                        return true;
-                    }
-                    return false;
-
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-            }
+				Branch br = db.Branches.FirstOrDefault(br3 => br3.BranchName == branchModel.BranchName);
+				if (br != null)
+				{
+					br.Address = branchModel.Address;
+					db.SaveChanges();
+					return true;
+				}
+				return false;
+             }
         }
     }
 }

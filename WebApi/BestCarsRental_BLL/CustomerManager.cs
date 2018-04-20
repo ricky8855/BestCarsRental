@@ -62,83 +62,60 @@ namespace BestCarsRental_BLL
 
         public bool AddCustomer(CustomerModel customer)
         {
-            try
-            {
-                using (BestCarsRentalEntities db = new BestCarsRentalEntities())
-                {
-                    // Check if already exist
-                    Customer c2 = db.Customers.Where(c => c.IDNumber == customer.IDNumber).FirstOrDefault();
-                    if (c2 != null)
-                    {   
-                        return false;
-                    }
+			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
+			{
+				// Check if already exist
+				Customer c2 = db.Customers.Where(c => c.IDNumber == customer.IDNumber).FirstOrDefault();
+				if (c2 != null)
+				{   
+					return false;
+				}
 
-                    db.Customers.Add(new Customer
-                    {
-                        FullName = customer.FullName,
-                        IDNumber = customer.IDNumber,
-                        UserName = customer.UserName,
-                        BirthDate = customer.BirthDate,
-                        Gender = customer.Gender,
-                        Email = customer.Email,
-                        Password = customer.Password,
-                        Photo = customer.Photo
+				db.Customers.Add(new Customer
+				{
+					FullName = customer.FullName,
+					IDNumber = customer.IDNumber,
+					UserName = customer.UserName,
+					BirthDate = customer.BirthDate,
+					Gender = customer.Gender,
+					Email = customer.Email,
+					Password = customer.Password,
+					Photo = customer.Photo
 
-                    });
-                    db.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+				});
+				db.SaveChanges();
+				return true;
+			}
         }
 
         public bool DeleteCustomer(string name)
         {
-            try
-            {
-                using (BestCarsRentalEntities db = new BestCarsRentalEntities())
-                {
-                    Customer customer = db.Customers.FirstOrDefault(c3 => c3.FullName == name);
-                    if (customer != null)
-                    {
-                        db.Customers.Remove(customer);
-                        db.SaveChanges();
-                        return true;
-                    }
-                }
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
+			{
+				Customer customer = db.Customers.FirstOrDefault(c3 => c3.FullName == name);
+				if (customer != null)
+				{
+					db.Customers.Remove(customer);
+					db.SaveChanges();
+					return true;
+				}
+			}
+			return false;
         }
 
         public bool EditCustomer(CustomerModel customer)
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-                try
-                {
-                    Customer at = db.Customers.FirstOrDefault(c3 => c3.FullName == customer.FullName);
-                    if (at != null)
-                    {
-                        at.Password = customer.Password;
-                        db.SaveChanges();
-                        return true;
-                    }
-                    return false;
-
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+				Customer at = db.Customers.FirstOrDefault(c3 => c3.FullName == customer.FullName);
+				if (at != null)
+				{
+					at.Password = customer.Password;
+					db.SaveChanges();
+					return true;
+				}
+				return false;
             }
         }
-
     }
 }

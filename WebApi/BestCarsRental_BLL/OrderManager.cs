@@ -49,7 +49,7 @@ namespace BestCarsRental_BLL
                         UserName = a.Customer.UserName,
                         BirthDate = a.Customer.BirthDate,
                         Gender = a.Customer.Gender,
-                        EMail = a.Customer.EMail,
+                        Email = a.Customer.Email,
                         Password = a.Customer.Password,
                         Photo = a.Customer.Photo
                     }
@@ -101,7 +101,7 @@ namespace BestCarsRental_BLL
                             UserName = a.Customer.UserName,
                             BirthDate = a.Customer.BirthDate,
                             Gender = a.Customer.Gender,
-                            EMail = a.Customer.EMail,
+                            Email = a.Customer.Email,
                             Password = a.Customer.Password,
                             Photo = a.Customer.Photo
                         }
@@ -114,85 +114,61 @@ namespace BestCarsRental_BLL
 
         public bool AddOrder(OrderModel order)
         {
-          //  string errorMessage = "";
-            try
-            {
-                using (BestCarsRentalEntities db = new BestCarsRentalEntities())
-                {
-                    Car car = db.Cars.Where(c => c.CarNumber == order.Car.CarNumber).FirstOrDefault();
-                    if (car == null)
-                    {
-                   //     errorMessage = "Car not found";
-                        return false;
-                    }
-                    Customer customer = db.Customers.Where(u => u.UserName == order.Customer.UserName).FirstOrDefault();
-                    if (customer == null)
-                    {
-                  //      errorMessage = "User not found";
-                        return false;
-                    }
-                    db.Orders.Add(new Order
-                    {
-                        CarID = car.CarID,
-                        CustomerID = customer.CustomerID,
-                        
-                        StartDate = order.StartDate,
-                        ExpectedReturnDate = order.ExpectedReturnDate,
-                        ActualReturnDate = order.ActualReturnDate
-                    });
-                    db.SaveChanges();
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
+			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
+			{
+				Car car = db.Cars.Where(c => c.CarNumber == order.Car.CarNumber).FirstOrDefault();
+				if (car == null)
+				{
+			   //     errorMessage = "Car not found";
+					return false;
+				}
+				Customer customer = db.Customers.Where(u => u.UserName == order.Customer.UserName).FirstOrDefault();
+				if (customer == null)
+				{
+			  //      errorMessage = "User not found";
+					return false;
+				}
+				db.Orders.Add(new Order
+				{
+					CarID = car.CarID,
+					CustomerID = customer.CustomerID,
+					
+					StartDate = order.StartDate,
+					ExpectedReturnDate = order.ExpectedReturnDate,
+					ActualReturnDate = order.ActualReturnDate
+				});
+				db.SaveChanges();
+				return true;
+			}
         }
 
         public bool DeleteOrder(int orderID)
         {
-            try
-            {
-                using (BestCarsRentalEntities db = new BestCarsRentalEntities())
-                {
-                    Order a = db.Orders.FirstOrDefault(c3 => c3.OrderID == orderID);
-                    if (a != null)
-                    {
-                        db.Orders.Remove(a);
-                        db.SaveChanges();
-                        return true;
-                    }
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                var t = ex.InnerException;
-                return false;
-            }
+			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
+			{
+				Order a = db.Orders.FirstOrDefault(c3 => c3.OrderID == orderID);
+				if (a != null)
+				{
+					db.Orders.Remove(a);
+					db.SaveChanges();
+					return true;
+				}
+			}
+			return false;
         }
 
         public bool EditOrder(OrderModel a)
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-                try
-                {
-                    Order at = db.Orders.FirstOrDefault(c3 => c3.OrderID == a.OrderID);
-                    if (at != null)
-                    {
-                        at.ActualReturnDate = a.ActualReturnDate;
-                        db.SaveChanges();
-                        return true;
-                    }
-                    return false;
-
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+				Order at = db.Orders.FirstOrDefault(c3 => c3.OrderID == a.OrderID);
+				if (at != null)
+				{
+					at.ActualReturnDate = a.ActualReturnDate;
+					db.SaveChanges();
+					return true;
+				}
+				return false;
             }
         }
     }
