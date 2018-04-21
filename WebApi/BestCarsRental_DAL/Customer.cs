@@ -25,8 +25,8 @@ namespace BestCarsRental_DAL
         public string IDNumber { get; set; }
         public string UserName { get; set; }
         public System.DateTime BirthDate { get; set; }
-        public int Gender { get; set; }
-        public string EMail { get; set; }
+        public string Gender { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
         public string Photo { get; set; }
     

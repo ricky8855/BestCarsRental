@@ -1,7 +1,8 @@
 ﻿
 using BestCarsRental_BO;
 using BestCarsRental_DAL;
-using System;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,12 +14,12 @@ namespace BestCarsRental_BLL
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-                return db.Customers.Select(customer => new CustomerModel
+                return db.Users.Select(customer => new CustomerModel
                 {
                     FullName = customer.FullName,
                     IDNumber = customer.IDNumber,
                     UserName = customer.UserName,
-                    BirthDate = customer.BirthDate,
+                //    BirthDate = customer.BirthDate,
                     Gender = customer.Gender,
                     Email = customer.Email,
                     Password = customer.Password,
@@ -31,7 +32,7 @@ namespace BestCarsRental_BLL
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-                return db.Customers.Select(a => a.UserName).ToList();
+                return db.Users.Select(a => a.UserName).ToList();
             }
         }
 
@@ -39,7 +40,7 @@ namespace BestCarsRental_BLL
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-                Customer customer = db.Customers.FirstOrDefault(at => (at.FullName == name || at.UserName == name ));
+                User customer = db.Users.FirstOrDefault(at => (at.FullName == name || at.UserName == name ));
 
                 if (customer != null)
                 {
@@ -48,7 +49,7 @@ namespace BestCarsRental_BLL
                         FullName = customer.FullName,
                         IDNumber = customer.IDNumber,
                         UserName = customer.UserName,
-                        BirthDate = customer.BirthDate,
+                    //    BirthDate = customer.BirthDate,
                         Gender = customer.Gender,
                         Email = customer.Email,
                         Password = customer.Password,
@@ -60,30 +61,33 @@ namespace BestCarsRental_BLL
             }
         }
 
-        public bool AddCustomer(CustomerModel customer)
+        public bool AddCustomer(CustomerModel customerModel)
         {
 			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
 			{
 				// Check if already exist
-				Customer c2 = db.Customers.Where(c => c.IDNumber == customer.IDNumber).FirstOrDefault();
+				User c2 = db.Users.Where(c => c.IDNumber == customerModel.IDNumber).FirstOrDefault();
 				if (c2 != null)
 				{   
 					return false;
 				}
+                var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+                var userManager = new UserManager<ApplicationUser>(userStore);
+                CustomerIdentityUser customerIdentity = new CustomerIdentityUser
+                {
+                    FullName = customerModel.FullName,
+                    IDNumber = customerModel.IDNumber,
+                    BirthDate = customerModel.BirthDate,
+                    Gender = customerModel.Gender,
+                    Password = customerModel.Password,
+                    Photo = customerModel.Photo,
 
-				db.Customers.Add(new Customer
-				{
-					FullName = customer.FullName,
-					IDNumber = customer.IDNumber,
-					UserName = customer.UserName,
-					BirthDate = customer.BirthDate,
-					Gender = customer.Gender,
-					Email = customer.Email,
-					Password = customer.Password,
-					Photo = customer.Photo
+                    UserName = customerModel.UserName,
+                    Email = customerModel.Email
+                };
 
-				});
-				db.SaveChanges();
+                IdentityResult result = userManager.Create(customerIdentity, customerModel.Password);
+               
 				return true;
 			}
         }
@@ -92,10 +96,10 @@ namespace BestCarsRental_BLL
         {
 			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
 			{
-				Customer customer = db.Customers.FirstOrDefault(c3 => c3.FullName == name);
+				User customer = db.Users.FirstOrDefault(c3 => c3.FullName == name);
 				if (customer != null)
 				{
-					db.Customers.Remove(customer);
+					db.Users.Remove(customer);
 					db.SaveChanges();
 					return true;
 				}
@@ -107,7 +111,7 @@ namespace BestCarsRental_BLL
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-				Customer at = db.Customers.FirstOrDefault(c3 => c3.FullName == customer.FullName);
+				User at = db.Users.FirstOrDefault(c3 => c3.FullName == customer.FullName);
 				if (at != null)
 				{
 					at.Password = customer.Password;

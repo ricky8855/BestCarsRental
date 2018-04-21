@@ -7,8 +7,10 @@ namespace BestCarsRental_BO
         [Required, MinLength(6), MaxLength(15)]
         public string UserName { get; set; }
 
-        [Required, MinLength(2), MaxLength(50)]
+       // [Required, MinLength(2), MaxLength(50)]
         public string Title { get; set; }
+
+        public string Email { get; set; }
 
         [Required, MinLength(8), MaxLength(256)]
         [DataType(DataType.Password)]

@@ -12,12 +12,18 @@ namespace BestCarsRental_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Role
     {
-        public int EmployeeID { get; set; }
-        public string UserName { get; set; }
-        public string Title { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Role()
+        {
+            this.Users = new HashSet<User>();
+        }
+    
+        public string Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }
