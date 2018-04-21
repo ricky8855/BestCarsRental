@@ -1,0 +1,19 @@
+
+
+
+GO
+SET IDENTITY_INSERT [dbo].[Employees] ON 
+INSERT [dbo].[Employees] ([EmployeeID], [UserName], [Title], [Password], [Email])
+VALUES (1, N'employee1', N'good', N'qwerty123', N'emp1@bestcars.com')
+ 
+INSERT [dbo].[Employees] ([EmployeeID], [UserName], [Title], [Password], [Email])
+VALUES (2, N'manager', N'admin', N'qwerty123', N'manager@bestcars.com')
+ 
+
+
+INSERT [dbo].[Employees] ([EmployeeID], [UserName], [Title], [Password], [Email])
+VALUES (3, N'employee2', N'good', N'qwerty123', N'emp2@bestcars.com')
+ 
+INSERT [dbo].[Employees] ([EmployeeID], [UserName], [Title], [Password], [Email])
+VALUES (4, N'employee3', N'good', N'qwerty123', N'emp3@bestcars.com')
+SET IDENTITY_INSERT [dbo].[Employees] OFF 
