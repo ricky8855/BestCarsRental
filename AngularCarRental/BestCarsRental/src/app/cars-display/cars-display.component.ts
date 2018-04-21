@@ -15,8 +15,8 @@ export class CarsDisplayComponent implements OnInit {
     carsList: Car[];
     branchesList: Array<string>;
     carTypeModelsList: Array<string>;
-    branch1: string ;
-    cartypemodel: string ;
+    branch1: string = "Paris";
+    cartypemodel: string = "Yaris" ;
     allcars: boolean = true;
 
     constructor(private carService: CarService, private carOrderComponent: CarOrderComponent , private branchService: BranchService, private carTypeService: CarTypeService) { }
@@ -43,7 +43,4 @@ export class CarsDisplayComponent implements OnInit {
         this.carService.getCarByBranchAndModel(this.branch1, this.cartypemodel, func);
     }
 
-    Orderrrrrr() {
-        console.log("  order  343454645");
-    }
 }

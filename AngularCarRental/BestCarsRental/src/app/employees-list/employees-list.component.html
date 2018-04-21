@@ -1,30 +1,33 @@
  
 <div class="row">
-    <div class="col-md-9">
-        <h3 class="admin-list-all"> All Employees </h3>
-    </div>
     <div class="col-md-3">
         <button (click)="employeeService.getEmployees()">Refresh</button>
     </div>
+    <div class="col-md-9">
+        <h3 class="admin-list-all"> All Employees </h3>
+    </div>
 </div>
-
-<table class="admin-table table table-sm table-hover">
-    <thead>
-        <tr>
-            <th scope="col">User Name</th>
-            <th scope="col">Title</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let employee of employeeService.employeesList">
-        <td>{{employee.UserName}}</td>
-        <td>{{employee.Title}}</td>
-        <td>
-            <a class="btn" (click)="showForEdit(employee)">
-                <i class="fa fa-pencil-square-o"></i>
-            </a>
-            <a class="btn text-danger" (click)="onDeleteEmployee(employee.UserName)">
-                <i class="fa fa-trash-o"></i>
-            </a>
-        </td>
-    </tr>
-</table>
+<div class="row">
+    <div class="col-md-10 table-scrolling">      
+        <table class="admin-table table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Title</th>
+                </tr>
+            </thead>
+            <tr *ngFor="let employee of employeeService.employeesList">
+                <td>{{employee.UserName}}</td>
+                <td>{{employee.Title}}</td>
+                <td>
+                    <a class="btn" (click)="showForEdit(employee)">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </a>
+                    <a class="btn text-danger" (click)="onDeleteEmployee(employee.UserName)">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

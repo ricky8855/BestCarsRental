@@ -20,7 +20,8 @@ export class CarsListComponent implements OnInit {
     }
 
     showForEdit(car: Car) {
-        Object.assign(this.carComponent.car, car);
+       this.carComponent.car = car;
+       console.log(this.carComponent.car.Branch.BranchName);     
     }
 
     onDeleteCar(carNumber: string) {

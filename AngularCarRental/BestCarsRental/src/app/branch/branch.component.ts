@@ -12,7 +12,7 @@ import { Branch } from './../shared/models/branch.model';
 
 export class BranchComponent implements OnInit {
     branch: Branch = new Branch();
-    branchName: string;
+    branchName: string ="Branch" ;
     addedSuccess: boolean = false;
 
     constructor(private branchService: BranchService) { }

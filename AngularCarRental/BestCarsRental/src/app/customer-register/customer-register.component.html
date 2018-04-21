@@ -1,0 +1,40 @@
+
+<div class="row">
+    
+         <form class="customer-register-form" #customerForm="ngForm">
+            
+             <div class="form-group">
+                 <input class="form-control" name="FullName" #FullName="ngModel" [(ngModel)]="customer.FullName" placeholder="Full Name" required>
+                 <div class="validation-error" *ngIf="FullName.invalid && FullName.touched">This Field is Required.</div>
+             </div>
+             <div class="form-group">
+                 <input class="form-control" name="IDNumber" #IDNumber="ngModel" [(ngModel)]="customer.IDNumber" placeholder="ID Number" required>
+                 <div class="validation-error" *ngIf="IDNumber.invalid && IDNumber.touched">This Field is Required.</div>
+             </div>
+             <div class="form-group">
+                 <input class="form-control" name="UserName" #UserName="ngModel" [(ngModel)]="customer.UserName" placeholder="User Name" required>
+                 <div class="validation-error" *ngIf="UserName.invalid && UserName.touched">This Field is Required.</div>
+             </div>
+             <div class="form-group">
+                 <input class="form-control" name="BirthDate" #BirthDate="ngModel" [(ngModel)]="customer.BirthDate" placeholder="Birth Date" required>
+                 <div class="validation-error" *ngIf="BirthDate.invalid && BirthDate.touched">This Field is Required.</div>
+             </div>
+             <div class="form-group">
+                 <input class="form-control" name="Gender" #Gender="ngModel" [(ngModel)]="customer.Gender" placeholder="Gender" required>
+                 <div class="validation-error" *ngIf="Gender.invalid && Gender.touched">This Field is Required.</div>
+             </div>
+             <div class="form-group">
+                <input class="form-control" name="Password" #Password="ngModel" [(ngModel)]="customer.Password" placeholder="***********" required>
+                 <!--<div class="validation-error" *ngIf="Password.invalid && Password.touched">This Field is Required.</div>-->
+             </div>
+             <div class="form-row">
+                 <div class="form-group col-md-4">
+                     <button [disabled]="!customerForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onRegister()">
+                         <i class="fa fa-floppy-o"></i> New
+                     </button>
+                 </div>
+             </div>
+ 
+         </form>
+   
+ </div>

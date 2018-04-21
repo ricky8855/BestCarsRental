@@ -1,29 +1,33 @@
 
 <div class="row">
-    <div class="col-md-9">
-        <h3 class="admin-list-all"> All Car Types </h3>
-    </div>
     <div class="col-md-3">
         <button (click)="carTypesService.getCarTypes()">Refresh</button>
     </div>
+    <div class="col-md-9">
+        <h3 class="admin-list-all"> All Car Types </h3>
+    </div>
 </div>
-<table class="admin-table table table-sm table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Model</th>
-            <th scope="col">Manufacturer</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let carType of carTypesService.carTypesList">
-        <td>{{carType.Model}}</td>
-        <td>{{carType.Manufacturer}}</td>
-        <td>
-            <a class="btn" (click)="showForEdit(carType)">
-                <i class="fa fa-pencil-square-o"></i>
-            </a>
-            <a class="btn text-danger" (click)="onDeleteCarType(carType.Model)">
-                <i class="fa fa-trash-o"></i>
-            </a>
-        </td>
-    </tr>
-</table>
+<div class="row">
+    <div class="col-md-10 table-scrolling">     
+        <table class="admin-table table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Model</th>
+                    <th scope="col">Manufacturer</th>
+                </tr>
+            </thead>
+            <tr *ngFor="let carType of carTypesService.carTypesList">
+                <td>{{carType.Model}}</td>
+                <td>{{carType.Manufacturer}}</td>
+                <td>
+                    <a class="btn" (click)="showForEdit(carType)">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </a>
+                    <a class="btn text-danger" (click)="onDeleteCarType(carType.Model)">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

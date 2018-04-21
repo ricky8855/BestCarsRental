@@ -1,32 +1,43 @@
 
 <div class="row">
     <div class="col-md-6">
-        <form class="car-form" #carForm="ngForm">
+        <form class="customer-input-form" #carForm="ngForm">
+            <h3 class="admin-list-all"> Please select </h3>
+            <h3 class="admin-list-all"> branch and model </h3>
+            <h3 class="admin-list-all"> or pick a car from the left list</h3>
             <div class="form-group">
-                <select class="form-control" name="BranchName" #BranchName="ngModel" [(ngModel)]="branch1">
+                <select class="form-control  col-lg-4" name="BranchName" #BranchName="ngModel" [(ngModel)]="branch1">
                     <option *ngFor="let branch of branchesList" [ngValue]="branch">{{branch}}</option>
                 </select>
             </div> 
             <div class="form-group">
-                <select class="form-control" name="CarType" #CarType="ngModel" [(ngModel)]="cartypemodel">
+                <select class="form-control col-lg-4" name="CarType" #CarType="ngModel" [(ngModel)]="cartypemodel">
                     <option *ngFor="let cartype of carTypeModelsList" [ngValue]="cartype">{{cartype}}</option>
                 </select>
             </div>
-            
            
             <div class="form-group">
-                <button type="button" class="btn btn-lg btn-block btn-info" (click)="onGetCarsList()"> Get Best Cars</button>
+                <button type="button" class="btn btn-lg btn-block btn-info  col-lg-4" (click)="onGetCarsList()"> Get Best Cars</button>
             </div>
         </form>
     </div>
     <div class="col-md-6">
-        <div *ngIf="allcars; else elseBlock">
-            <table border=1 class="disp-table">
+        <div>
+                <h3 class="head-list-all"> All Cars </h3>
+        </div>
+        <div *ngIf="allcars; else elseBlock" class="table-scrolling">
+            <table class="admin-table table table-hover car-display">
+                <thead>
+                    <tr>
+                        <th scope="col">Car</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Branch</th>
+                    </tr>
+                </thead> 
                 <tr *ngFor="let car of carService.carsList">
                     <td><img width="100" height="50" alt="858" src="assets/images/{{car.Image}}"></td>
                     <td>{{car.CarType.Model}}</td>
                     <td>{{car.Branch.BranchName}}</td> 
-                    <td>{{car.CarNumber}}</td> 
                     <td> <button type="button"  [routerLink]="['/carorder',car.CarNumber ]"> Order Now </button></td>
                 </tr>
             </table>  

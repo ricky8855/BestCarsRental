@@ -11,7 +11,7 @@ import { CustomersListComponent } from '../customers-list/customers-list.compone
 
 export class CustomerComponent implements OnInit {
     customer: Customer = new Customer();
-    fullName: string;
+    fullName: string = "Name";
     newCustomer: Customer = new Customer();
     addedSuccess: boolean = false;
     deleteSuccess: boolean = false;

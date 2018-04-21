@@ -2,14 +2,14 @@
 <div class="row">
     <div class="col-md-6">
 
-        <form class="branch-form" #branchForm="ngForm">
+        <form class="admin-input-form" #branchForm="ngForm">
             <div class="form-row">
                 <div class="form-group col-md-3">
-                    <input class="form-control" name="BranchNameS" [(ngModel)]="branchName" />
-                </div>
-                <div class="form-group col-md-3">
-                    <button (click)="onSearchBranch()">search</button>
-                </div>
+                <button (click)="onSearchBranch()">search</button>
+            </div>
+            <div class="form-group col-md-3">
+               <input class="form-control" name="BranchNameS" [(ngModel)]="branchName" />
+            </div>
             </div>
             <div class="form-group">
                 <input class="form-control" name="BranchName" #BranchName="ngModel" [(ngModel)]="branch.BranchName" placeholder="Branch Name" required>

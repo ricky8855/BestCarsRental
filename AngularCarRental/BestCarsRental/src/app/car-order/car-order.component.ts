@@ -16,8 +16,8 @@ export class CarOrderComponent implements OnInit {
     carNumber: string = "";
 
     order: Order = new Order();
-    daysNumber: number;
-    totalPrice: number;
+    daysNumber: number = 0;
+    totalPrice: number = 0;
     toatlCalculated: boolean = false;
     userName: string;
     addedSuccess: boolean = false;

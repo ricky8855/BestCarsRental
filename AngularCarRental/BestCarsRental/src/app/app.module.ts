@@ -28,6 +28,7 @@ import { CarTypesListComponent } from './car-types-list/car-types-list.component
 
 import { CustomerComponent } from './customer/customer.component';
 import { CustomersListComponent } from './customers-list/customers-list.component';
+import { CustomerRegisterComponent } from './customer-register/customer-register.component';
 
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeesListComponent } from './employees-list/employees-list.component';
@@ -62,7 +63,8 @@ import {OrderService} from './shared/services/order.service'
 	CarTypeComponent,
 	CarTypesListComponent, 
 	CustomerComponent, 
-	CustomersListComponent,  
+    CustomersListComponent,
+    CustomerRegisterComponent,
 	EmployeeComponent, 
     EmployeesListComponent,
     OrderComponent,

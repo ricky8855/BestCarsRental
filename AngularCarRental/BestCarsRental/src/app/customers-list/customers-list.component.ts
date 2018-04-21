@@ -21,7 +21,7 @@ export class CustomersListComponent implements OnInit {
     }
 
     showForEdit(customer: Customer) {
-        Object.assign(this.empComponent.customer, customer);
+        this.empComponent.customer= customer;
     }
 
     onDeleteCustomer(fullName: string) {

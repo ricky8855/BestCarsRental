@@ -1,102 +1,104 @@
 
 <form class="car-order-form" #employeeForm="ngForm">
         <div class="form-row">
-            <div class="form-group col-md-2">
+            <div class="form-group col-lg-2">
                 <label class="form-control">Branch Name</label>
             </div>
-            <div class="form-group col-md-3">
-                <input class="form-control" name="text" value="{{order.Car.Branch.BranchName}}" readonly>
+            <div class="form-group col-lg-2">
+                <label class="form-control">{{order.Car.Branch.BranchName}}</label>
             </div>
-            <div class="form-group col-md-1"></div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-lg-1"></div>
+            <div class="form-group col-lg-2">
                 <label class="form-control">Price Per Day</label>
             </div>
-            <div class="form-group col-md-3">
-                <input class="form-control" name="text" value="{{order.Car.CarType.PricePerDay}}" readonly>
+            <div class="form-group col-lg-1">
+                <label class="form-control">{{order.Car.CarType.PricePerDay}}</label>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-2">
+            <div class="form-group col-lg-2">
                 <label class="form-control">Model</label>
             </div>
-            <div class="form-group col-md-3">
-                <input class="form-control" name="text" value="{{order.Car.CarType.Model}}" readonly>
+            <div class="form-group col-lg-2">
+                <label class="form-control">{{order.Car.CarType.Model}}</label>
             </div>
-            <div class="form-group col-md-1"></div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-lg-1"></div>
+            <div class="form-group col-lg-2">
                 <label class="form-control">Price Per Late Day</label>
             </div>
-            <div class="form-group col-md-3">
-                <input class="form-control" name="text" value="{{order.Car.CarType.PricePerLateDay}}" readonly>
+            <div class="form-group col-lg-1">
+                <label class="form-control">{{order.Car.CarType.PricePerLateDay}}</label>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-2">
+            <div class="form-group  col-lg-2">
                 <label class="form-control">Manufacturer</label>
             </div>
-            <div class="form-group col-md-3">
-                <input class="form-control" name="text" value="{{order.Car.CarType.Manufacturer}}" readonly>
+            <div class="form-group col-lg-2">
+                <label class="form-control">{{order.Car.CarType.Manufacturer}}</label>
             </div>
-            <div class="form-group col-md-1"></div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-lg-1"></div>
+            <div class="form-group col-lg-2">
                 <label class="form-control">Gearbox Type</label>
             </div>
-            <div class="form-group col-md-3">
-                <input class="form-control" name="text" value="{{order.Car.CarType.GearboxType}}" readonly>
+            <div class="form-group col-md-1">
+                <label class="form-control">{{order.Car.CarType.GearboxType}}</label>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-2">
+            <div class="form-group col-lg-2">
                 <label class="form-control">Car Number</label>
             </div>
-            <div class="form-group col-md-3">
-                <input class="form-control" name="text" value="{{order.Car.CarNumber}}">
+            <div class="form-group col-lg-2">
+                <label class="form-control">{{order.Car.CarNumber}}</label>
             </div>
-            <div class="form-group col-md-1"></div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-lg-1"></div>
+            <div class="form-group col-lg-3">
                 <img width="100" height="60" alt="858" src="assets/images/{{order.Car.Image}}">
             </div>
         </div>
-       
         <div class="form-row">
-            <div class="form-group col-md-2">
+            <h3  class="head-list-all">Please enter rental period date:</h3>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-lg-2">
                 <label class="form-control">Start Date</label>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group  col-lg-2">
                 <input type="date" class="form-control" name="StartDate" #StartDate="ngModel" [(ngModel)]="order.StartDate" placeholder="Start Date" required>
             </div>
-            <div class="form-group col-md-2"></div>
-            <div class="form-group col-md-2">
+            <div class="form-group  col-lg-1"></div>
+            <div class="form-group  col-lg-2">
                 <label class="form-control">Return Date</label>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group  col-lg-2">
                 <input type="date" class="form-control" name="ExpectedReturnDate" #ExpectedReturnDate="ngModel" [(ngModel)]="order.ExpectedReturnDate" placeholder="Expected Return Date" required>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-2">
+            <div class="form-group col-lg-2">
                 <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="calcDaysAndPrice()">Calculate Total </button>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-lg-2">
                 <label class="form-control">Days Number</label>
             </div>
-            <div class="form-group col-md-2">
-                <input class="form-control" name="text" value="{{daysNumber}}" readonly>
+            <div class="form-group col-lg-1">
+                <label class="form-control">{{daysNumber}}</label>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-lg-2">
                 <label class="form-control">Total Price</label>
             </div>
-            <div class="form-group col-md-2">
-                <input class="form-control" name="text" value="{{totalPrice}}" readonly>
+            <div class="form-group col-lg-1">
+                <label class="form-control">{{totalPrice}}</label>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-lg-2">
                 <button [disabled]="!toatlCalculated" type="button" class="btn btn-lg btn-block btn-info" (click)="onNewOrder()">
                     <i class="fa fa-floppy-o"></i> Order Now
                 </button>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-lg-4">
                 <input class="form-control" name="UserName" #UserName="ngModel" [(ngModel)]="userName" placeholder="User Name" required>
             </div>
         </div>

@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 
 export class CarComponent implements OnInit {
     car: Car = new Car();
-    carNumber: string;
+    carNumber: string = "Car Number";
   
     addedSuccess: boolean = false;
     deleteSuccess: boolean = false;

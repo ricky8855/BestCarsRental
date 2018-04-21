@@ -22,17 +22,17 @@ export class CustomerService {
             );
     }
 
-    getAllCustomersUserNames(callBack: (b: Array<string>) => void): void {
+    getAllCustomersUserNames________(callBack: (b: Array<string>) => void): void {
         this.myHttpClient.get<Array<string>>(this.webApiUrl.url + "/api/customer/usernames")
             .subscribe(
             callBack
             );
     }
-
+ 
     getCustomer(customerName: string, callBack: (b: Customer) => void): void {
         this.myHttpClient.get<Customer>(this.webApiUrl.url + "/api/customer/" + customerName)
             .subscribe(
-            callBack
+                callBack
             );
     }
 
@@ -43,6 +43,13 @@ export class CustomerService {
             );
     }
 
+
+    registerCustomer(customer: Customer, callBack: (b: boolean) => void): void {
+        this.myHttpClient.post<boolean>(this.webApiUrl.url + "/api/users/cregister", customer)
+            .subscribe(
+            callBack
+            );
+    }
 
     addCustomer(customer: Customer, callBack: (b: boolean) => void): void {
         this.myHttpClient.post<boolean>(this.webApiUrl.url + "/api/customer/add", customer)

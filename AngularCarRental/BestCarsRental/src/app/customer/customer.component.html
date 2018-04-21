@@ -1,60 +1,75 @@
 
-<div class="row">
-    <div class="col-md-6">
-        <form class="customer-form" #customerForm="ngForm">
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <input class="form-control" name="FullNameS" [(ngModel)]="fullName" />
-                </div>
-                <div class="form-group col-md-3">
-                    <button (click)="onSearchCustomer()">search</button>
-                </div>
+    <div class="row">
+            <div class="col-md-6">
+                <form class="admin-input-form" #customerForm="ngForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <button (click)="onSearchCustomer()">search</button>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input class="form-control" name="FullNameS" [(ngModel)]="fullName" />
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <input class="form-control col-lg-7" name="FullName" #FullName="ngModel" [(ngModel)]="customer.FullName" placeholder="Full Name" required>
+                        <div class="validation-error" *ngIf="FullName.invalid && FullName.touched">This Field is Required.</div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-5">
+                            <input class="form-control" name="UserName" #UserName="ngModel" [(ngModel)]="customer.UserName" placeholder="User Name" required>
+                            <div class="validation-error" *ngIf="UserName.invalid && UserName.touched">This Field is Required.</div>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <input class="form-control" name="IDNumber" #IDNumber="ngModel" [(ngModel)]="customer.IDNumber" placeholder="ID Number" required>
+                            <div class="validation-error" *ngIf="IDNumber.invalid && IDNumber.touched">This Field is Required.</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-5">
+                            <input class="form-control" name="BirthDate" #BirthDate="ngModel" [(ngModel)]="customer.BirthDate" placeholder="Birth Date" required>
+                            <div class="validation-error" *ngIf="BirthDate.invalid && BirthDate.touched">This Field is Required.</div>
+    
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <select class="form-control" name="Gender" #Gender="ngModel" [(ngModel)]="customer.Gender" placeholder="Gender">
+                                <option value="F">F</option>
+                                <option value="M">M</option>
+                                <option value="O">O</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="form-row">
+                        <div class="form-group col-lg-6">
+                            <input class="form-control" name="Email" #Email="ngModel" [(ngModel)]="customer.Email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <input class="form-control " name="Password" placeholder="*********">
+                        </div>
+                    </div>
+    
+                    <div class="form-row">
+                        <div class="form-group col-lg-3">
+                            <button [disabled]="!customerForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onUpdateCustomer()">
+                                <i class="fa fa-floppy-o"></i> Update
+                            </button>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <button [disabled]="!customerForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onNewCustomer()">
+                                <i class="fa fa-floppy-o"></i> New
+                            </button>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="onResetCustomer()">
+                                <i class="fa fa-repeat"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+    
+                </form>
             </div>
-            <div class="form-group">
-                <input class="form-control" name="FullName" #FullName="ngModel" [(ngModel)]="customer.FullName" placeholder="Full Name" required>
-                <div class="validation-error" *ngIf="FullName.invalid && FullName.touched">This Field is Required.</div>
+            <div class="col-md-6">
+                <app-customers-list></app-customers-list>
             </div>
-            <div class="form-group">
-                <input class="form-control" name="IDNumber" #IDNumber="ngModel" [(ngModel)]="customer.IDNumber" placeholder="ID Number" required>
-                <div class="validation-error" *ngIf="IDNumber.invalid && IDNumber.touched">This Field is Required.</div>
-            </div>
-            <div class="form-group">
-                <input class="form-control" name="UserName" #UserName="ngModel" [(ngModel)]="customer.UserName" placeholder="User Name" required>
-                <div class="validation-error" *ngIf="UserName.invalid && UserName.touched">This Field is Required.</div>
-            </div>
-            <div class="form-group">
-                <input class="form-control" name="BirthDate" #BirthDate="ngModel" [(ngModel)]="customer.BirthDate" placeholder="Birth Date" required>
-                <div class="validation-error" *ngIf="BirthDate.invalid && BirthDate.touched">This Field is Required.</div>
-            </div>
-            <div class="form-group">
-                <input class="form-control" name="Gender" #Gender="ngModel" [(ngModel)]="customer.Gender" placeholder="Gender" required>
-                <div class="validation-error" *ngIf="Gender.invalid && Gender.touched">This Field is Required.</div>
-            </div>
-            <div class="form-group">
-                <input class="form-control" name="Password">
-                <!--<div class="validation-error" *ngIf="Password.invalid && Password.touched">This Field is Required.</div>-->
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <button [disabled]="!customerForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onUpdateCustomer()">
-                        <i class="fa fa-floppy-o"></i> Update
-                    </button>
-                </div>
-                <div class="form-group col-md-4">
-                    <button [disabled]="!customerForm.valid" type="button" class="btn btn-lg btn-block btn-info" (click)="onNewCustomer()">
-                        <i class="fa fa-floppy-o"></i> New
-                    </button>
-                </div>
-                <div class="form-group col-md-4">
-                    <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="onResetCustomer()">
-                        <i class="fa fa-repeat"></i> Reset
-                    </button>
-                </div>
-            </div>
-
-        </form>
-    </div>
-    <div class="col-md-6">
-        <app-customers-list></app-customers-list>
-    </div>
-</div>
+        </div>

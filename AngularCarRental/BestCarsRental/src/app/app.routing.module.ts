@@ -15,6 +15,7 @@ import { CarTypesListComponent } from './car-types-list/car-types-list.component
 
 import { CustomerComponent } from './customer/customer.component';
 import { CustomersListComponent } from './customers-list/customers-list.component';
+import { CustomerRegisterComponent } from './customer-register/customer-register.component';
 
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeesListComponent } from './employees-list/employees-list.component';
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
 	{ path: "cartype", component: CarTypeComponent },
 	{ path: "cartypes", component: CarTypesListComponent },
 	{ path: "customer", component: CustomerComponent },
-	{ path: "customers", component: CustomersListComponent },
+    { path: "customers", component: CustomersListComponent },
+    { path: "register", component: CustomerRegisterComponent },
 	{ path: "employee", component: EmployeeComponent },
     { path: "employees", component: EmployeesListComponent },
     { path: "order", component: OrderComponent },

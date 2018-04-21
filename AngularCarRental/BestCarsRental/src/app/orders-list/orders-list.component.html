@@ -1,38 +1,42 @@
 <div class="row">
-    <div class="col-md-9">
-        <h3 class="admin-list-all"> All Customers </h3>
-    </div>
     <div class="col-md-3">
         <button (click)="orderService.getOrders()">Refresh</button>
     </div>
+    <div class="col-md-9">
+        <h3 class="admin-list-all"> All Orders </h3>
+    </div>
 </div>
 
-<table class="admin-table table table-sm table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Order Id</th>
-            <th scope="col">Start Date</th>
-            <th scope="col">Car Model</th>
-            <th scope="col">User Name</th>
-           <!-- <th scope="col">Expected Return Date</th> -->
-           <!-- <th scope="col">Actual Return Date</th> -->
-        </tr>
-    </thead>
-    <tr *ngFor="let order of orderService.ordersList">
-        <td>{{order.OrderID}}</td>
-        <td>{{order.StartDate | date}}</td>
-        <td>{{order.Car.CarType.Model}}</td>
-        <td>{{order.Customer.FullName}}</td>
-       <!--  <td>{{order.ExpectedReturnDate | date}}</td> -->
-       <!--  <td>{{order.ActualReturnDate | date}}</td> -->
+<div class="row">
+    <div class="col-md-10 table-scrolling">  
+        <table class="admin-table table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">Car Model</th>
+                    <th scope="col">User Name</th>
+                <!-- <th scope="col">Expected Return Date</th> -->
+                <!-- <th scope="col">Actual Return Date</th> -->
+                </tr>
+            </thead>
+            <tr *ngFor="let order of orderService.ordersList">
+                <td>{{order.OrderID}}</td>
+                <td>{{order.StartDate | date}}</td>
+                <td>{{order.Car.CarType.Model}}</td>
+                <td>{{order.Customer.FullName}}</td>
+            <!--  <td>{{order.ExpectedReturnDate | date}}</td> -->
+            <!--  <td>{{order.ActualReturnDate | date}}</td> -->
 
-        <td>
-            <a class="btn" (click)="showForEdit(order)">
-                <i class="fa fa-pencil-square-o"></i>
-            </a>
-            <a class="btn text-danger" (click)="onDeleteOrder(order.nnn)">
-                <i class="fa fa-trash-o"></i>
-            </a>
-        </td>
-    </tr>
-</table>
+                <td>
+                    <a class="btn" (click)="showForEdit(order)">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </a>
+                    <a class="btn text-danger" (click)="onDeleteOrder(order.nnn)">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

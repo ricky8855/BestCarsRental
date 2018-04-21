@@ -5,8 +5,8 @@
         IDNumber: string;
         UserName: string;
         BirthDate: Date;
-        Gender: boolean;
-        EMail: string;
+        Gender: string;
+        Email: string;
         Password: string;
         Photo: string;
 
