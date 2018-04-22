@@ -23,4 +23,13 @@ export class OrdersListComponent implements OnInit {
     showForEdit(order: Order) {
         Object.assign(this.orderComponent.order, order);
     }
+
+
+    onDeleteOrder(orderID: number) {
+        this.deleteSuccess = false;
+        let func: (b: boolean) => void = (b: boolean) => {
+            this.deleteSuccess = b;
+        }
+        this.orderService.deleteOrder(orderID, func);
+    }
 }

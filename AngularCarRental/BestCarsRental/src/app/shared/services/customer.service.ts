@@ -43,9 +43,8 @@ export class CustomerService {
             );
     }
 
-
     registerCustomer(customer: Customer, callBack: (b: boolean) => void): void {
-        this.myHttpClient.post<boolean>(this.webApiUrl.url + "/api/users/cregister", customer)
+        this.myHttpClient.post<boolean>(this.webApiUrl.url + "/api/customer/add", customer)
             .subscribe(
             callBack
             );

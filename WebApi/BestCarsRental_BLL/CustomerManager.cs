@@ -14,7 +14,7 @@ namespace BestCarsRental_BLL
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-                return db.Users.Select(customer => new CustomerModel
+                return db.Customers.Select(customer => new CustomerModel
                 {
                     FullName = customer.FullName,
                     IDNumber = customer.IDNumber,
@@ -32,7 +32,7 @@ namespace BestCarsRental_BLL
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-                return db.Users.Select(a => a.UserName).ToList();
+                return db.Customers.Select(a => a.UserName).ToList();
             }
         }
 
@@ -87,8 +87,20 @@ namespace BestCarsRental_BLL
                 };
 
                 IdentityResult result = userManager.Create(customerIdentity, customerModel.Password);
-               
-				return true;
+                db.Customers.Add(new Customer
+                {
+                    FullName = customerModel.FullName,
+                    IDNumber = customerModel.IDNumber,
+                    UserName = customerModel.UserName,
+                    BirthDate = customerModel.BirthDate,
+                    Gender = customerModel.Gender,
+                    Email = customerModel.Email,
+                    Password = customerModel.Password,
+                    Photo = customerModel.Photo
+
+                });
+                db.SaveChanges();
+                return true;
 			}
         }
 
@@ -96,10 +108,16 @@ namespace BestCarsRental_BLL
         {
 			using (BestCarsRentalEntities db = new BestCarsRentalEntities())
 			{
-				User customer = db.Users.FirstOrDefault(c3 => c3.FullName == name);
-				if (customer != null)
+                Customer customer1 = db.Customers.FirstOrDefault(c3 => c3.FullName == name);
+                if (customer1 != null)
+                {
+                    db.Customers.Remove(customer1);
+                    db.SaveChanges(); 
+                }
+                User customer2 = db.Users.FirstOrDefault(c3 => c3.FullName == name);
+				if (customer2 != null)
 				{
-					db.Users.Remove(customer);
+					db.Users.Remove(customer2);
 					db.SaveChanges();
 					return true;
 				}
@@ -111,10 +129,10 @@ namespace BestCarsRental_BLL
         {
             using (BestCarsRentalEntities db = new BestCarsRentalEntities())
             {
-				User at = db.Users.FirstOrDefault(c3 => c3.FullName == customer.FullName);
+				Customer at = db.Customers.FirstOrDefault(c3 => c3.FullName == customer.FullName);
 				if (at != null)
 				{
-					at.Password = customer.Password;
+					at.Email = customer.Email;
 					db.SaveChanges();
 					return true;
 				}
